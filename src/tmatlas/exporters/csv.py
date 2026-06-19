@@ -47,7 +47,7 @@ def export_data_to_csv(
     if not isinstance(X_data, pd.DataFrame):
         raise TypeError("X_data must be a pandas Dataframe.")
 
-    feature_names = X_data.colmns.tolist()
+    feature_names = X_data.columns.tolist()
 
     clause_headers: set[str] = set()
     for item in activated_clauses_list:

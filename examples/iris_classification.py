@@ -7,7 +7,6 @@ from tmatlas.booleanisation.thermometer import Thermometer
 from tmu.models.classification.coalesced_classifier import TMCoalescedClassifier
 
 import json
-from tm_exporter import TMJsonExporter
 from tmatlas.inspectors.features import FeatureInspector
 from tmatlas.inspectors.tmu_inspector import TMUInspector
 from tmatlas.exporters.json import JsonExporter
@@ -96,10 +95,10 @@ print(f"Model successfully exported to '{output_filename}'")
 clause_outputs = tm_best.transform(X_te_tm)
 
 # 6. Find activated clauses
-activated_clauses_list = TMJsonExporter.format_clause_activations(clause_outputs)
+activated_clauses_list = format_clause_activations(clause_outputs)
 
 # 7. Save input and model data to csv
-TMJsonExporter.export_data_to_csv(
+export_data_to_csv(
     output_filename="final_model_output.csv",
     X_data=X_te,
     y_actual=y_te,
